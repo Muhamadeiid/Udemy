@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .courses {
+    @apply text-[#6a6f73] tracking-wide font-bold cursor-pointer
+  }
+  .comment {
+    @apply border p-5 w-[390px] h-[300px] bg-white
+  }
+  .item {
+
+  }
+  .item-img {
+    @apply hover:transform hover:scale-110 transition 
+  }
+  .inside-item {
+    @apply h-[290px] w-[290px] bg-[#f7f9fa]
+  }
+  .list {
+    @apply text-white w-full
+  }
+  .ul {
+    @apply flex flex-col w-[250px] text-[14px] gap-2
+  }
+}
+.list a {
+  @apply w-full
+}
+.trending-topics{
+  @apply w-[22%]
+}
+.trending-head {
+  @apply text-[#2d2f31] text-xl font-bold mb-6
+}
+.trending-item a {
+  @apply text-maincolor font-bold text-base underline 
+}
+.trending-item div {
+  @apply text-[#6a6f73] text-sm mt-2
+}
+.trending-item {
+  @apply mb-6
+}
