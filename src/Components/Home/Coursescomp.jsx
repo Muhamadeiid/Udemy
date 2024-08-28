@@ -1,12 +1,9 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import CoursesSlider from "./CoursesSlider";
-import compStyle from "./home.module.css"
-import myCourses from "../../courses.json"
+import compStyle from "./home.module.css";
+import myCourses from "../../courses.json";
 import commentStyle from "./home.module.css";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-
-
-
 
 const Courses = () => {
   let CoursesObj = [
@@ -73,18 +70,21 @@ const Courses = () => {
        with a specialized course. We’ve got tons of options to get — and keep — you going.`,
       coursesApi: myCourses.draw,
     },
-   ];
-   const gap = 24;
+  ];
+  const gap = 24;
   const [position, setPosition] = useState(0);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const itemWidth = 288;
 
+  const visibleItems = () => {
+    if (sliderRef.current) {
+      const sliderWidth = sliderRef.current.offsetWidth;
+      return Math.floor(sliderWidth / itemWidth);
+    }
+    return 1; // fallback value in case ref is not ready
+  };
   const sliderRef = useRef();
 
-  const visibleItems = () => {
-    const sliderWidth = sliderRef.current.offsetWidth;
-    return Math.floor(sliderWidth / itemWidth);
-  };
   const handlePrev = () => {
     if (position > 0) {
       setPosition(position - 1);
@@ -97,7 +97,7 @@ const Courses = () => {
   const handleNext = () => {
     if (position < totalItems - visibleItems()) {
       setPosition(position + 1);
-      setShowLeftArrow(true); 
+      setShowLeftArrow(true);
     }
   };
 
@@ -112,14 +112,14 @@ const Courses = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
   let getElement = (e) => {
     const newIndex = e.getAttribute("data-index");
     setIndex(newIndex);
-    setPosition(0);  
-    setShowLeftArrow(false); 
+    setPosition(0);
+    setShowLeftArrow(false);
   };
-  let totalItems =  CoursesObj[index].coursesApi.courses.length;
+  let totalItems = CoursesObj[index].coursesApi.courses.length;
   return (
     <>
       <div ref={sliderRef} className="w-[90%]  mx-auto">
@@ -133,72 +133,93 @@ const Courses = () => {
           </p>
         </div>
         <div className=" mt-[20px]">
-        <ul className="flex gap-4">
-        {CoursesObj.map((el, idx) => (
-          <Fragment key={idx}>
-            
-            <li data-index = {idx} onClick={(e)=>{
-                getElement(e.target)
-                setIndex(idx)
-            }
-            
-            } className={index == idx?"font-bold text-black cursor-pointer":"font-bold cursor-pointer text-[#73787c]"}>{el.title}</li>
-          </Fragment>
-        ))}
-      </ul>
-      <div  className="details width-full border p-8 mt-4">
-        { CoursesObj.map((el, idx) => (
-          
-            index == idx?
+          <ul className="flex gap-4">
+            {CoursesObj.map((el, idx) => (
               <Fragment key={idx}>
-                <h1 className="text-[24px] mb-[8px] font-bold">{el.head}</h1>
-                <p style={compStyle} className={compStyle.parag}>{el.paragraph}</p>
-                <button className="p-2 border border-black font-bold hover:bg-slate-200">Explore {el.title}</button>
-              </Fragment>: ""
-            ))
-        }
-        <div className="relative">
-         <div className={commentStyle.container}  >
-        <div  className=" gap-8 flex absolute overflow-hidden mt-12"  style={{
-                 transform: `translateX(-${position * (itemWidth + gap)}px)`,
-                transition: "transform 0.3s ease",
-              }}>
-        {
-        CoursesObj[index].coursesApi.courses.map((course,idx) => (
-          
-          <div className="card w-72 h-80" key={idx}>
-            <img className="" src={course.image} alt={course.title} />
-            <h1 className="mt-4 h-10 font-bold text-sm leading-[1.4]">{course.title}</h1>
-            <h4 className="h-6 text-xs text-[#6a6f73]">{course.instructors[0].name}</h4>
-            <p className="h-6 review text-xs font-bold">Rate: {course.rating}</p>
-            <h3 className="price font-bold text-base text-[#2d2f31]">${course.price}</h3>
-          </div>
-        ))}
-        </div>
-       
-        </div>
-        {showLeftArrow && (
-          <FaArrowCircleLeft
-            onClick={handlePrev}
-            size={40}
-            className="cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2"
-          />
-        )}
-        
-        {position < totalItems - visibleItems() && (
-          <FaArrowCircleRight
-            onClick={handleNext}
-            size={40}
-            className="cursor-pointer z-10 absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2"
-          />
-        )}
-        </div>
-      </div>
-     
-        </div>
+                <li
+                  data-index={idx}
+                  onClick={(e) => {
+                    getElement(e.target);
+                    setIndex(idx);
+                  }}
+                  className={
+                    index == idx
+                      ? "font-bold text-black cursor-pointer"
+                      : "font-bold cursor-pointer text-[#73787c]"
+                  }
+                >
+                  {el.title}
+                </li>
+              </Fragment>
+            ))}
+          </ul>
+          <div className="details width-full border p-8 mt-4">
+            {CoursesObj.map((el, idx) =>
+              index == idx ? (
+                <Fragment key={idx}>
+                  <h1 className="text-[24px] mb-[8px] font-bold">{el.head}</h1>
+                  <p style={compStyle} className={compStyle.parag}>
+                    {el.paragraph}
+                  </p>
+                  <button className="p-2 border border-black font-bold hover:bg-slate-200">
+                    Explore {el.title}
+                  </button>
+                </Fragment>
+              ) : (
+                ""
+              )
+            )}
+            <div className="relative">
+              <div className={commentStyle.container}>
+                <div
+                  className=" gap-8 flex absolute overflow-hidden mt-12"
+                  style={{
+                    transform: `translateX(-${position * (itemWidth + gap)}px)`,
+                    transition: "transform 0.3s ease",
+                  }}
+                >
+                  {CoursesObj[index].coursesApi.courses.map((course, idx) => (
+                    <div className="card w-72 h-80" key={idx}>
+                      <img className="" src={course.image} alt={course.title} />
+                      <h1 className="mt-4 h-10 font-bold text-sm leading-[1.4]">
+                        {course.title}
+                      </h1>
+                      <h4 className="h-6 text-xs text-[#6a6f73]">
+                        {course.instructors[0].name}
+                      </h4>
+                      <p className="h-6 review text-xs font-bold">
+                        Rate: {course.rating.toFixed(1)}
+                      </p>
+                      <h3 className="price font-bold text-base text-[#2d2f31]">
+                        ${course.price}
+                      </h3>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {showLeftArrow && (
+                <FaArrowCircleLeft
+                  onClick={() => {
+                    handlePrev();
+                  }}
+                  size={40}
+                  className="cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2"
+                />
+              )}
 
+              {position < totalItems - visibleItems() && (
+                <FaArrowCircleRight
+                  onClick={() => {
+                    handleNext();
+                  }}
+                  size={40}
+                  className="cursor-pointer z-10 absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2"
+                />
+              )}
+            </div>
+          </div>
+        </div>
       </div>
-      
     </>
   );
 };

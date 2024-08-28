@@ -10,8 +10,11 @@ const Comments = () => {
   const sliderRef = useRef();
 
   const visibleItems = () => {
-    const sliderWidth = sliderRef.current.offsetWidth;
-    return Math.floor(sliderWidth / itemWidth);
+    if (sliderRef.current) {
+      const sliderWidth = sliderRef.current.offsetWidth;
+      return Math.floor(sliderWidth / itemWidth);
+    }
+    return 1; // fallback value in case ref is not ready
   };
   const handlePrev = () => {
     if (position > 0) {

@@ -3,9 +3,13 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import myCourses from "../../courses.json"
 import commentStyle from "./home.module.css";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 
 const CoursesSlider = () => {
+  const navigate = useNavigate();
+  const handleCourseClick = (courseId) => {
+    navigate(`/course/${courseId}`);  // Navigate to course detail page with the course ID
+  };
   const gap = 24;
   let allCourses = myCourses.HomePageCourses
   const [position, setPosition] = useState(0);
@@ -15,8 +19,11 @@ const CoursesSlider = () => {
   const sliderRef = useRef();
 
   const visibleItems = () => {
-    const sliderWidth = sliderRef.current ? sliderRef.current.offsetWidth : 0;
-    return Math.floor(sliderWidth / itemWidth);
+    if (sliderRef.current) {
+      const sliderWidth = sliderRef.current.offsetWidth;
+      return Math.floor(sliderWidth / itemWidth);
+    }
+    return 1; // fallback value in case ref is not ready
   };
 
   const handlePrev = () => {
@@ -64,7 +71,8 @@ const CoursesSlider = () => {
                 transition: "transform 0.3s ease",
               }}>
         {allCourses.map(course => (
-          <div className="card w-72 h-80" key={course.id}>
+          <div className="card w-72 h-80" key={course.id} onClick={() => handleCourseClick(course.id)}  // On course click
+>
             <img src={course.image} alt="" />
             <h1 className="mt-4 h-10 font-bold text-sm leading-[1.4]">{course.title}</h1>
             <h4 className="h-6 text-xs text-[#6a6f73]">{course.instructors[0].name}</h4>
