@@ -6,8 +6,8 @@ import mine from "../../Images/Logo-me.jpg"
 const Customers = () => {
   return (
     <>
-      <div className="customers mb-16 flex flex-col gap-8 bg-[#f7f9fa] py-12">
-        <div className="relative border bg-white flex justify-between m-auto w-[850px] p-8">
+      <div className="customers mb-16 flex flex-col md:gap-8 bg-[#f7f9fa] py-12 shadow-md gap-2">
+        <div className="relative border bg-white flex justify-between m-auto w-[400px] lg:w-[800px] md:w-[600px] p-8">
           <div className="text flex flex-col justify-between items-start">
           <p className=" max-w-96">
             Thanks to Udemy Business, Booz Allen has armed our workforce,

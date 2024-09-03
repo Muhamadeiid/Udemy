@@ -35,7 +35,7 @@ useEffect(()=>{
     <>
       <header className={menu? " z-10 flex justify-between items-center px-4 overflow-clip shadow-lg h-[60px]":"z-10 overflow-clip px-4 shadow-lg w-full h-[72px] gap-[20px] flex grow justify-center items-center"}>
       <RxHamburgerMenu size={24} className={menu ? "block cursor-pointer": "hidden"}/>
-        <Link to={"https://www.udemy.com/"}><img src={logo} alt="logo" className="w-28 h-max" /></Link>
+        <Link to={"/"}><img src={logo} alt="logo" className="w-28 h-max" /></Link>
         <p className={menu? "hidden" : "text-[#2d2f31] text-[0.9rem] cursor-pointer hover:text-maincolor"}>Categories</p>
         <div className={menu? "hidden": "relative h-[44px] grow flex"}>
         <GoSearch size={18} className=" text-gray-500 absolute left-4 -translate-y-1/2 top-1/2" />
@@ -47,7 +47,7 @@ useEffect(()=>{
         </div>
         <div className="flex gap-4">
         <GoSearch size={24} className={menu?"block cursor-pointer":"hidden"} />
-        <IoCartOutline size={24} style={{color:"#5022c3"}} className="cursor-pointer" />
+       <Link to={"/cart"}> <IoCartOutline size={24} style={{color:"#5022c3"}} className="cursor-pointer" /></Link>
         </div>
         <div className= {menu? "hidden" :"flex gap-4"}>
         <button className="border border-black w-[80px] h-[40px] hover:bg-slate-200">Log In</button>

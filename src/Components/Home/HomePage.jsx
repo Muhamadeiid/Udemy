@@ -32,13 +32,13 @@ const HomePage = () => {
   return (
     <>
       <Nav />
-      <div className="relative z-[-1] mx-auto max-w-[1350px] h-[400px]">
+      <div className="md:relative md:z-[-1] md:mx-auto static flex flex-col md:h-[400px] max-w-[1350px] items-center h-fit pb-5 ">
         <img
           src={background}
           alt="background"
-          className="w-full max-h-full absolute"
+          className="md:w-full md:max-h-full md:absolute"
         />
-        <div className="text absolute w-[400px] p-[2.4rem] top-10 left-16 shadow-lg">
+        <div className="text  md:absolute  w-[400px] p-[2.4rem] top-10 left-16 shadow-lg">
           <h1 className="mb-[8px] text-[2.8rem] font-bold text-[#2d2f31] leading-tight tracking-[-0.16rem]">
             Find the right fit
           </h1>
@@ -53,46 +53,46 @@ const HomePage = () => {
           Trusted by over 15,000 companies and millions of learners around the
           world
         </h3>
-        <div className="logos flex flex-wrap gap-4">
-          <div className=" w-44 h-28 flex justify-center items-center">
+        <div className="logos grid grid-cols-4 w-full md:flex md:flex-wrap gap-4 ">
+          <div className=" md:w-44 md:h-28 w-[30px] h-[30px] flex justify-center items-center justify-self-center">
             <img
               src={vw}
               alt="VW"
-              className="w-[48px] h-[48px] filter grayscale"
+              className="md:w-[48px] md:h-[48px] w-[30px] h-[30px] filter grayscale"
             />
           </div>
-          <div className="w-44 h-28 flex justify-center items-center">
+          <div className="md:w-44 md:h-28 w-[30px] h-[30px] flex justify-center items-center justify-self-center">
             <img
               src={samsung}
               alt="Samsung"
-              className="w-28 h-16 filter grayscale"
+              className="md:w-28 md:h-16 w-[30px] h-[30px] filter grayscale"
             />
           </div>
-          <div className="w-44 h-28 flex justify-center items-center">
+          <div className="md:w-44 md:h-28 w-[30px] h-[30px] flex justify-center items-center justify-self-center">
             <img
               src={cisco}
               alt="Cisco"
-              className="w-24 h-[48px] filter grayscale"
+              className="md:w-24 md:h-[48px] w-[30px] h-[30px] filter grayscale"
             />
           </div>
-          <div className="w-44 h-28 flex justify-center items-center">
+          <div className="md:w-44 md:h-28  w-[30px] h-[30px] flex justify-center items-center justify-self-center">
             <img
               src={pg}
               alt="P&G"
-              className="w-[48px] h-[48px] filter grayscale"
+              className="md:w-[48px] md:h-[48px] w-[30px] h-[30px] filter grayscale"
             />
           </div>
-          <div className="w-44 h-28 flex justify-center items-center">
-            <img src={hp} alt="HP" className="w-24 h-16 filter grayscale" />
+          <div className="md:w-44 md:h-28 flex justify-center items-center justify-self-center">
+            <img src={hp} alt="HP" className="md:w-24 md:h-16 w-[30px] h-[30px] filter grayscale" />
           </div>
-          <div className="w-44 h-28 flex justify-center items-center">
+          <div className="md:w-44 md:h-28 flex justify-center items-center justify-self-center">
             <img
               src={citi}
               alt="Citi"
-              className="w-[48px] h-[48px] filter grayscale"
+              className="md:w-[48px] md:h-[48px] w-[30px] h-[30px] filter grayscale"
             />
           </div>
-          <div className="w-44 h-28 flex justify-center items-center">
+          <div className="md:w-44 md:h-28 w-[30px] h-[30px] flex justify-center items-center justify-self-center">
             <img
               src={ericsson}
               alt="Ericsson"
@@ -102,6 +102,7 @@ const HomePage = () => {
         </div>
       </div>
       <Coursescomp />
+      
       <Comments />
       <CoursesSlider/>
       
@@ -174,9 +175,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="featured mt-16 pt-16 w-[100%] bg-[#f7f9fa]">
+      <div className="featured mt-16 pt-8 w-[100%] bg-[#f7f9fa]">
         <div className="w-[90%] mx-auto">
-          <h1 className="text-[#2d2f31] text-2xl font-bold leading-[1.2]">
+          <h1 className="text-[#2d2f31] mb-6 text-2xl font-bold leading-[1.2]">
             Featured topics by category
           </h1>
           <div className="trending flex justify-between">
@@ -247,7 +248,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="udemy-business my-16">
-        <div className="container flex w-[80%] justify-around mx-auto">
+        <div className="container flex md:flex-row gap-4 flex-col justify-center items-center w-[80%] md:justify-around mx-auto">
           <div className="flex flex-col items-start max-w-[400px]">
             <img
               src={ubusiness}
@@ -277,14 +278,14 @@ const HomePage = () => {
         </div>
       </div>
       <Customers />
-      <div className="udemy-business my-16">
-        <div className="container flex w-[65%] justify-around mx-auto">
+      <div className="udemy-business my-16 mx-auto">
+        <div className="container flex w-[90%] md:flex-row items-center flex-col md:justify-around justify-center mx-auto">
           <img className="max-w-[400px] h-full" src={instractor} alt="hero" />
-          <div className="flex flex-col justify-center gap-4 items-start max-w-[400px]">
+          <div className="flex flex-col justify-center gap-4 items-center md:items-start md:max-w-[400px]">
             <h1 className=" text-[#2d2f31] font-bold text-3xl">
               Become an instructor
             </h1>
-            <p className=" text-[#2d2f31] font-normal text-xl">
+            <p className=" text-[#2d2f31] text-center font-normal text-xl">
               Instructors from around the world teach millions of learners on
               Udemy. We provide the tools and skills to teach what you love
             </p>

@@ -4,6 +4,7 @@ import compStyle from "./home.module.css";
 import myCourses from "../../courses.json";
 import commentStyle from "./home.module.css";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Courses = () => {
   let CoursesObj = [
@@ -71,6 +72,10 @@ const Courses = () => {
       coursesApi: myCourses.draw,
     },
   ];
+  const navigate = useNavigate();
+  const handleCourseClick = (courseId) => {
+    navigate(`/course/${courseId}`);
+  };
   const gap = 24;
   const [position, setPosition] = useState(0);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
@@ -81,7 +86,7 @@ const Courses = () => {
       const sliderWidth = sliderRef.current.offsetWidth;
       return Math.floor(sliderWidth / itemWidth);
     }
-    return 1; // fallback value in case ref is not ready
+    return 1;
   };
   const sliderRef = useRef();
 
@@ -122,7 +127,7 @@ const Courses = () => {
   let totalItems = CoursesObj[index].coursesApi.courses.length;
   return (
     <>
-      <div ref={sliderRef} className="w-[90%]  mx-auto">
+      <div ref={sliderRef} className="w-[90%] mx-auto">
         <div className="text">
           <h2 className="font-bold text-3xl leading-[1.35] tracking-[-.012rem]">
             A broad selection of courses
@@ -133,7 +138,7 @@ const Courses = () => {
           </p>
         </div>
         <div className=" mt-[20px]">
-          <ul className="flex gap-4">
+          <ul className="flex gap-4 flex-wrap">
             {CoursesObj.map((el, idx) => (
               <Fragment key={idx}>
                 <li
@@ -179,12 +184,12 @@ const Courses = () => {
                   }}
                 >
                   {CoursesObj[index].coursesApi.courses.map((course, idx) => (
-                    <div className="card w-72 h-80" key={idx}>
+                    <div className="card w-72 h-80 cursor-pointer" key={idx} onClick={() => handleCourseClick(course.id)}>
                       <img className="" src={course.image} alt={course.title} />
                       <h1 className="mt-4 h-10 font-bold text-sm leading-[1.4]">
                         {course.title}
                       </h1>
-                      <h4 className="h-6 text-xs text-[#6a6f73]">
+                      <h4 className="h-10 text-xs text-[#6a6f73]">
                         {course.instructors[0].name}
                       </h4>
                       <p className="h-6 review text-xs font-bold">

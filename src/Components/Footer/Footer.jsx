@@ -5,9 +5,9 @@ import logo from "../../Images/Udemy.png";
 const Footer = () => {
   return (
     <>
-      <div className="bg-[#2d2f31] px-14 py-6">
-        <div className="bg-[#2d2f31]  flex justify-between">
-          <div className="flex gap-6">
+      <div className="bg-[#2d2f31] md:px-14 px-8 py-6 w-full">
+        <div className="bg-[#2d2f31] flex flex-wrap justify-between">
+          <div className="flex flex-col sm:justify-between sm:flex-row gap-6">
             <ul className="ul">
               <li className="list">
                 <Link to="#">Udemy Business</Link>

@@ -16,13 +16,13 @@
     @apply hover:transform hover:scale-110 transition 
   }
   .inside-item {
-    @apply h-[290px] w-[290px] bg-[#f7f9fa]
+    @apply md:h-[290px] md:w-[290px] h-[200px] w-[200px] bg-[#f7f9fa]
   }
   .list {
     @apply text-white w-full
   }
   .ul {
-    @apply flex flex-col w-[250px] text-[14px] gap-2
+    @apply flex flex-col max-w-[200px] md:w-[180px] text-[14px] gap-2
   }
 }
 .list a {

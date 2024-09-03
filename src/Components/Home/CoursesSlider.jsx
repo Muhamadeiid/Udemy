@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const CoursesSlider = () => {
   const navigate = useNavigate();
   const handleCourseClick = (courseId) => {
-    navigate(`/course/${courseId}`);  // Navigate to course detail page with the course ID
+    navigate(`/course/${courseId}`);
   };
   const gap = 24;
   let allCourses = myCourses.HomePageCourses
@@ -23,7 +23,7 @@ const CoursesSlider = () => {
       const sliderWidth = sliderRef.current.offsetWidth;
       return Math.floor(sliderWidth / itemWidth);
     }
-    return 1; // fallback value in case ref is not ready
+    return 1;
   };
 
   const handlePrev = () => {
@@ -71,8 +71,7 @@ const CoursesSlider = () => {
                 transition: "transform 0.3s ease",
               }}>
         {allCourses.map(course => (
-          <div className="card w-72 h-80" key={course.id} onClick={() => handleCourseClick(course.id)}  // On course click
->
+          <div className="card w-72 h-80 cursor-pointer" key={course.id} onClick={() => handleCourseClick(course.id)}>
             <img src={course.image} alt="" />
             <h1 className="mt-4 h-10 font-bold text-sm leading-[1.4]">{course.title}</h1>
             <h4 className="h-6 text-xs text-[#6a6f73]">{course.instructors[0].name}</h4>
