@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
  const initialState = {
-    courses : [],
+    courses: storedCart,
     totalPrice:0,
-    // totalItems: this.courses.length
 }
 
 export const cartSlice =  createSlice({
@@ -13,6 +13,7 @@ export const cartSlice =  createSlice({
             const courseExists = state.courses.find((course) => course.id === payload.id);
             if (!courseExists) {
               state.courses = [...state.courses, payload];
+              localStorage.setItem('cart', JSON.stringify(state.courses));
             }
           },
         removeFromCard:(state,action)=>{
@@ -25,6 +26,7 @@ export const cartSlice =  createSlice({
                 }
                 return true
             })
+            localStorage.setItem('cart', JSON.stringify(state.courses));
         },
         calcTotal:(state)=>{
             let total = 0
