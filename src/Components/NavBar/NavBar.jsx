@@ -56,7 +56,7 @@ const NavBar = () => {
           onClick={toggleMobileMenu}
         />
         <Link to={"/"}>
-          <img src={logo} alt="logo" className="w-28 h-max object-fit" />
+          <img src={logo} alt="logo" className="w-28 h-max object-contain" />
         </Link>
 
         <p
