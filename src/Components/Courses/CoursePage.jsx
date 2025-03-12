@@ -30,7 +30,7 @@ const CoursePage = () => {
     window.addEventListener("resize", pageWidth);
 
     axios
-      .get("../../../public/courses.json")
+      .get("/courses.json")
       .then((res) => {
         const allCourses = [
           ...res.data.python?.courses,
@@ -53,10 +53,8 @@ const CoursePage = () => {
 
   const course = data?.find((c) => c.id === parseInt(courseId));
 
-  // Check if the course is in the cart
   const isInCart = cart.some((item) => item.id === course?.id);
 
-  // Handle add/remove from cart
   const handleCartAction = () => {
     if (course) {
       dispatch(toggleCartItem(course));
