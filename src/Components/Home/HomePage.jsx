@@ -301,7 +301,7 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-          <img className="max-w-[400px] h-full" src={hero} alt="hero" />
+          <img className="max-w-[400px] h-full object-contain" src={hero} alt="hero" />
         </div>
       </div>
       <Customers />

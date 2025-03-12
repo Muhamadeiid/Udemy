@@ -64,7 +64,7 @@ const Footer = () => {
             English
           </button>
         </div>
-        <div className="flex justify-between mt-8 items-end">
+        <div className="flex justify-between md:mt-8 items-end">
           <Link to={"https://www.udemy.com/"}>
             <img src={logo} alt="logo" className="w-28 h-max object-contain" />
           </Link>
