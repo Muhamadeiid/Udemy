@@ -48,7 +48,7 @@ const HomePage = () => {
           </p>
         </div>
       </div>
-      <div className="sponsors bg-[#f7f9fa] w-full flex flex-col items-center justify-center p-16">
+      <div className="sponsors gap-4 bg-[#f7f9fa] w-full flex flex-col items-center justify-center p-16">
         <h3>
           Trusted by over 15,000 companies and millions of learners around the
           world

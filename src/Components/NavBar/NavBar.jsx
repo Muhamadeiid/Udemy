@@ -21,8 +21,8 @@ const NavBar = () => {
     ...myCourses.Excel.courses,
   ];
   const handleResize = () => {
-    setMenu(window.innerWidth < 800);
-    if (window.innerWidth >= 800) setShowMobileMenu(false);
+    setMenu(window.innerWidth < 768);
+    if (window.innerWidth >= 768) setShowMobileMenu(false);
   };
 
   useEffect(() => {
@@ -41,18 +41,15 @@ const NavBar = () => {
         menu ? "h-[60px]" : "h-[72px]"
       }`}
     >
-      {menu && (
         <RxHamburgerMenu
           size={24}
-          className="cursor-pointer"
+          className="cursor-pointer md:hidden"
           onClick={() => setShowMobileMenu(!showMobileMenu)}
         />
-      )}
 
       <Link to="/">
         <img src={logo} alt="logo" className="w-28" />
       </Link>
-
       {!menu && (
         <>
           <p className="text-[#2d2f31] text-sm cursor-pointer hover:text-maincolor">
@@ -82,6 +79,39 @@ const NavBar = () => {
             </button>
           </div>
         </>
+      )}
+
+
+      {showMobileMenu && (
+        <>
+        <div className="absolute top-[60px] left-0 w-full md:hidden bg-white shadow-lg flex flex-col gap-4 p-4">
+          <p className="text-[#2d2f31] text-sm cursor-pointer hover:text-maincolor transition-colors duration-200">
+            Categories
+          </p>
+      
+          <div className="w-full">
+            <SearchBar allCourses={allCourses} />
+          </div>
+          <p className="text-[#2d2f31] text-sm cursor-pointer hover:text-maincolor transition-colors duration-200">
+            Udemy Business
+          </p>
+      
+          <p className="text-[#2d2f31] text-sm cursor-pointer hover:text-maincolor transition-colors duration-200">
+            Teach on Udemy
+          </p>
+          <button className="border border-black w-full h-[40px] rounded-md hover:bg-slate-200 transition-colors duration-200">
+            Log In
+          </button>
+
+          <button className="border border-black w-full h-[40px] bg-black text-white rounded-md hover:bg-gray-800 transition-colors duration-200">
+            Sign Up
+          </button>
+          <button className="border border-black w-full h-[40px] rounded-md flex items-center justify-center hover:bg-slate-200 transition-colors duration-200">
+            <IoEarth size={18} className="mr-2" />
+            <span>Language</span>
+          </button>
+        </div>
+      </>
       )}
     </header>
   );

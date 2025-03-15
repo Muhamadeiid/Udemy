@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
         <div className="flex justify-between md:mt-8 items-end">
           <Link to={"https://www.udemy.com/"}>
-            <img src={logo} alt="logo" className="w-28 h-max object-contain" />
+            <img src={logo} alt="logo" className="w-20 md:w-28 h-auto object-contain" />
           </Link>
           <p className="text-white text-[13px] ">© 2024 Udemy, Inc.</p>
         </div>
