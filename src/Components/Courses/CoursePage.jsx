@@ -108,24 +108,24 @@ const CoursePage = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full flex justify-center">
-          <div className="w-[50%] max-w-[600px] mt-11 flex flex-col items-center">
+        <div className="w-full px-2 flex justify-center">
+          <div className="sm:w-[50%] max-w-[600px] mt-11 flex flex-col items-center">
             <img
-              className="w-full h-[300px]"
+              className="w-full sm:h-[300px] object-cover"
               src={course?.image}
               alt={`image for ${course?.title}`}
             />
-            <h1 className="font-bold text-3xl mt-5 text-[#2d2f31]">
+            <h1 className="font-bold sm:text-2xl mt-5 text-[#2d2f31]">
               {course?.title}
             </h1>
-            <p className="text-lg my-6">{course?.headline}</p>
-            <div className="text-amber-400 font-bold mb-8">
+            <p className="text-base my-6 sm:text-lg">{course?.headline}</p>
+            <div className="text-amber-400 font-bold mb-8 sm:text-base text-sm">
               Rate: {course?.rating?.toFixed(1)}
             </div>
-            <h4>Price: ${course?.price}</h4>
+            <h4 className="sm:text-base text-sm">Price: ${course?.price}</h4>
             <button
               onClick={handleCartAction}
-              className="w-full h-14 bg-white text-black border border-black mt-6 font-bold mb-6 hover:bg-slate-200"
+              className="w-full h-14 sm:text-base text-sm bg-white text-black border border-black mt-6 font-bold mb-6 hover:bg-slate-200"
             >
               {isInCart ? "Remove from Cart" : "Add to Cart"}
             </button>
@@ -135,10 +135,10 @@ const CoursePage = () => {
 
       {width && (
         <div className="bg-[#2d2f31] px-4 md:px-14 py-10 hidden md:block">
-          <h1 className="text-3xl text-white font-bold max-w-[500px] mb-8">
+          <h1 className="sm:text-3xl text-sm text-white font-bold max-w-[500px] mb-8">
             {course?.title}
           </h1>
-          <p className="text-white text-xl max-w-[500px] mb-8">
+          <p className="text-white sm:text-xl text-sm max-w-[500px] mb-8">
             {course?.headline}
           </p>
           <div className="text-amber-400 font-bold mb-8">
@@ -163,14 +163,14 @@ const CoursePage = () => {
 
       <div className="flex justify-center">
         <div className="course-landing-page my-10 w-[90%]">
-          <h2 className="container max-w-5xl text-3xl text-[#2d2f31] font-bold mb-4">
+          <h2 className="container max-w-5xl text-xl sm:text-3xl text-[#2d2f31] font-bold mb-4">
             Instructor
           </h2>
           <div className="max-w-[500px]">
             {course?.instructors.map((el, idx) => (
               <div
                 key={idx}
-                className="text-maincolor underline text-xl font-bold mb-4"
+                className="text-maincolor underline text-base sm:text-xl font-bold mb-4"
               >
                 <Link to="#">{el.name}</Link> <span> | </span>
                 <Link to="#">{el.jop}</Link>

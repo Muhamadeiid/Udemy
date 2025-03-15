@@ -14,7 +14,7 @@ const Comments = () => {
       const sliderWidth = sliderRef.current.offsetWidth;
       return Math.floor(sliderWidth / itemWidth);
     }
-    return 1; // fallback value in case ref is not ready
+    return 1; 
   };
   const handlePrev = () => {
     if (position > 0) {

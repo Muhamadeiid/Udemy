@@ -67,7 +67,9 @@ const NavBar = () => {
               Teach on Udemy
             </p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
+            <Link to="/cart"> <IoCartOutline size={24} className="cursor-pointer hover:text-maincolor transition-colors duration-200"/> </Link>
+           
             <button className="border border-black w-[80px] h-[40px] hover:bg-slate-200">
               Log In
             </button>
@@ -84,21 +86,13 @@ const NavBar = () => {
 
       {showMobileMenu && (
         <>
-        <div className="absolute top-[60px] left-0 w-full md:hidden bg-white shadow-lg flex flex-col gap-4 p-4">
-          <p className="text-[#2d2f31] text-sm cursor-pointer hover:text-maincolor transition-colors duration-200">
-            Categories
-          </p>
+        <div className="absolute top-[60px] left-0 w-full md:hidden bg-white shadow-lg flex flex-col items-center gap-4 p-4">
       
           <div className="w-full">
             <SearchBar allCourses={allCourses} />
           </div>
-          <p className="text-[#2d2f31] text-sm cursor-pointer hover:text-maincolor transition-colors duration-200">
-            Udemy Business
-          </p>
-      
-          <p className="text-[#2d2f31] text-sm cursor-pointer hover:text-maincolor transition-colors duration-200">
-            Teach on Udemy
-          </p>
+          <Link to="/cart"> <IoCartOutline size={28} className="hover:text-maincolor transition-colors duration-200 cursor-pointer"/> </Link>
+
           <button className="border border-black w-full h-[40px] rounded-md hover:bg-slate-200 transition-colors duration-200">
             Log In
           </button>

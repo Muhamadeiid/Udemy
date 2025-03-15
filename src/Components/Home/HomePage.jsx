@@ -83,7 +83,11 @@ const HomePage = () => {
             />
           </div>
           <div className="md:w-44 md:h-28 flex justify-center items-center justify-self-center">
-            <img src={hp} alt="HP" className="md:w-24 md:h-16 w-[30px] h-[30px] filter grayscale" />
+            <img
+              src={hp}
+              alt="HP"
+              className="md:w-24 md:h-16 w-[30px] h-[30px] filter grayscale"
+            />
           </div>
           <div className="md:w-44 md:h-28 flex justify-center items-center justify-self-center">
             <img
@@ -102,10 +106,10 @@ const HomePage = () => {
         </div>
       </div>
       <Coursescomp />
-      
+
       <Comments />
-      <CoursesSlider/>
-      
+      <CoursesSlider />
+
       <div className="categories w-[90%] mx-auto">
         <h1 className="font-bold text-[24px]">Top categories</h1>
         <div className="flex flex-wrap md:justify-between justify-evenly mt-[10px] font-bold leading-5 text-[16px]">
@@ -176,104 +180,114 @@ const HomePage = () => {
         </div>
       </div>
       <div className="featured mt-16 pt-8 w-[100%] bg-[#f7f9fa]">
-  <div className="w-[90%] mx-auto">
-    <h1 className="text-[#2d2f31] mb-6 text-2xl font-bold leading-[1.2]">
-      Featured topics by category
-    </h1>
-    <div className="trending flex flex-col md:flex-row justify-between gap-8">
-      <div className="trending-topics">
-        <div className="trending-head font-bold mb-4">Development</div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            Python
-          </Link>
-          <div className="text-[#6a6f73] text-sm">36,354,994 learners</div>
-        </div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            Web Development
-          </Link>
-          <div className="text-[#6a6f73] text-sm">11,415,615 learners</div>
-        </div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            Machine Learning
-          </Link>
-          <div className="text-[#6a6f73] text-sm">7,070,015 learners</div>
-        </div>
-      </div>
+        <div className="w-[90%] mx-auto">
+          <h1 className="text-[#2d2f31] mb-6 text-2xl font-bold leading-[1.2]">
+            Featured topics by category
+          </h1>
+          <div className="trending flex flex-col md:flex-row justify-between gap-8">
+            <div className="trending-topics">
+              <div className="trending-head font-bold mb-4">Development</div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  Python
+                </Link>
+                <div className="text-[#6a6f73] text-sm">
+                  36,354,994 learners
+                </div>
+              </div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  Web Development
+                </Link>
+                <div className="text-[#6a6f73] text-sm">
+                  11,415,615 learners
+                </div>
+              </div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  Machine Learning
+                </Link>
+                <div className="text-[#6a6f73] text-sm">7,070,015 learners</div>
+              </div>
+            </div>
 
-      <div className="trending-topics">
-        <div className="trending-head font-bold mb-4">Business</div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            Financial Analysis
-          </Link>
-          <div className="text-[#6a6f73] text-sm">1,195,282 learners</div>
-        </div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            SQL
-          </Link>
-          <div className="text-[#6a6f73] text-sm">5,977,561 learners</div>
-        </div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            PMP
-          </Link>
-          <div className="text-[#6a6f73] text-sm">1,733,398 learners</div>
-        </div>
-      </div>
+            <div className="trending-topics">
+              <div className="trending-head font-bold mb-4">Business</div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  Financial Analysis
+                </Link>
+                <div className="text-[#6a6f73] text-sm">1,195,282 learners</div>
+              </div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  SQL
+                </Link>
+                <div className="text-[#6a6f73] text-sm">5,977,561 learners</div>
+              </div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  PMP
+                </Link>
+                <div className="text-[#6a6f73] text-sm">1,733,398 learners</div>
+              </div>
+            </div>
 
-      <div className="trending-topics">
-        <div className="trending-head font-bold mb-4">IT and Software</div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            Amazon AWS
-          </Link>
-          <div className="text-[#6a6f73] text-sm">6,123,456 learners</div>
-        </div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            Ethical Hacking
-          </Link>
-          <div className="text-[#6a6f73] text-sm">10,931,066 learners</div>
-        </div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            Cyber Security
-          </Link>
-          <div className="text-[#6a6f73] text-sm">3,998,037 learners</div>
-        </div>
-      </div>
+            <div className="trending-topics">
+              <div className="trending-head font-bold mb-4">
+                IT and Software
+              </div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  Amazon AWS
+                </Link>
+                <div className="text-[#6a6f73] text-sm">6,123,456 learners</div>
+              </div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  Ethical Hacking
+                </Link>
+                <div className="text-[#6a6f73] text-sm">
+                  10,931,066 learners
+                </div>
+              </div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  Cyber Security
+                </Link>
+                <div className="text-[#6a6f73] text-sm">3,998,037 learners</div>
+              </div>
+            </div>
 
-      <div className="trending-topics">
-        <div className="trending-head font-bold mb-4">Design</div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            Photoshop
-          </Link>
-          <div className="text-[#6a6f73] text-sm">10,909,736 learners</div>
-        </div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            Graphic Design
-          </Link>
-          <div className="text-[#6a6f73] text-sm">3,381,052 learners</div>
-        </div>
-        <div className="trending-item mb-4">
-          <Link to={"#"} className="text-[#5624d0] hover:underline">
-            Drawing
-          </Link>
-          <div className="text-[#6a6f73] text-sm">2,410,849 learners</div>
+            <div className="trending-topics">
+              <div className="trending-head font-bold mb-4">Design</div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  Photoshop
+                </Link>
+                <div className="text-[#6a6f73] text-sm">
+                  10,909,736 learners
+                </div>
+              </div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  Graphic Design
+                </Link>
+                <div className="text-[#6a6f73] text-sm">3,381,052 learners</div>
+              </div>
+              <div className="trending-item mb-4">
+                <Link to={"#"} className="text-[#5624d0] hover:underline">
+                  Drawing
+                </Link>
+                <div className="text-[#6a6f73] text-sm">2,410,849 learners</div>
+              </div>
+            </div>
+          </div>
+          <button className="border border-black text-sm font-bold w-[160px] h-[35px] mt-8 hover:bg-slate-200">
+            Explore more topics
+          </button>
         </div>
       </div>
-    </div>
-    <button className="border border-black text-sm font-bold w-[160px] h-[35px] mt-8 hover:bg-slate-200">
-      Explore more topics
-    </button>
-  </div>
-</div>
       <div className="udemy-business my-16">
         <div className="container flex md:flex-row gap-4 flex-col justify-center items-center w-[80%] md:justify-around mx-auto">
           <div className="flex flex-col items-start max-w-[400px]">
@@ -301,7 +315,11 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-          <img className="max-w-[400px] h-full object-contain" src={hero} alt="hero" />
+          <img
+            className="max-w-[400px] h-full object-contain"
+            src={hero}
+            alt="hero"
+          />
         </div>
       </div>
       <Customers />

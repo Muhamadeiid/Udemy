@@ -10,65 +10,44 @@ const Courses = () => {
   let CoursesObj = [
     {
       title: "Python",
-      head: "Expand your career opportunities with Python",
-      paragraph: `Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language.
-        Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning.
-        You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal
-        to both beginners and advanced developers alike.`,
+      head: myCourses.python.header,
+      paragraph: myCourses.python.description,
       coursesApi: myCourses.python,
     },
     {
       title: "Microsoft Excel",
-      head: "Analyze and visualize data with Excel",
-      paragraph: `Take a Microsoft Excel course from Udemy, and learn how to use this industry-standard software.
-       Real-world experts will show you the basics like how to organize data into sheets,
-        rows and columns, and advanced techniques like creating complex dynamic formulas.
-       Both small businesses and large companies use Excel to turn their raw data into actionable insights.`,
+      head: myCourses.Excel.header,
+      paragraph: myCourses.Excel.description,
       coursesApi: myCourses.Excel,
     },
     {
       title: "Web Development",
-      head: "Build websites and applications with Web Development",
-      paragraph: `The world of web development is as wide as the internet itself.
-       Much of our social and vocational lives play out on the internet, which prompts new industries aimed at creating,
-       managing, and debugging the websites and applications that we increasingly rely on.`,
+      head: myCourses.WebDev.header,
+      paragraph: myCourses.WebDev.description,
       coursesApi: myCourses.WebDev,
     },
     {
       title: "JavaScript",
-      head: "Grow your software development skills with JavaScript",
-      paragraph: `JavaScript is a text-based computer programming language used to make dynamic web pages.
-       A must-learn for aspiring web developers or programmers, JavaScript can be used for features like image carousels,
-        displaying countdowns and timers, and playing media on a webpage. With JavaScript online classes,
-         you can learn to build interactive web applications, choose the best framework,
-          and work with other programming languages like HTML and CSS. `,
+      head: myCourses.javaScript.header,
+      paragraph: myCourses.javaScript.description,
       coursesApi: myCourses.javaScript,
     },
     {
       title: "Data Science",
-      head: "Lead data-driven decisions with Data Science",
-      paragraph: `Data science application is an in-demand skill in many industries worldwide — including finance,
-       transportation, education, manufacturing, human resources, and banking. Explore data science courses with Python,
-        statistics, machine learning, and more to grow your knowledge. Get data science training if you’re into research, statistics,
-       and analytics.`,
+      head: myCourses.dataScience.header,
+      paragraph: myCourses.dataScience.description,
       coursesApi: myCourses.dataScience,
     },
     {
       title: "Amazon AWS",
-      head: "Become an expert in cloud computing with AWS Certification",
-      paragraph: `Amazon Web Services (AWS) is a cloud computing platform with more than 200 featured services.
-       Whether or not you aim for certification, an AWS course offers the theory and practical skills you need to land a job in cloud
-        development, sales, engineering, networking, and more. The better you become at cloud computing, the more you can earn.
-         Anyone can learn AWS skills, and with AWS online training, you can move at your own pace.`,
+      head: myCourses.aWS.header,
+      paragraph: myCourses.aWS.description,
       coursesApi: myCourses.aWS,
     },
     {
       title: "Drawing",
-      head: "Expand your creative skillset with Drawing",
-      paragraph: `Want to start drawing for fun or take your craft to the next level? Explore our online drawing classes and learn
-       pencil drawing, figure drawing, cartoon drawing, character drawing for cartoons and anime, illustration, sketching, 
-       shading and more. Take an overview course on the fundamentals of drawing or zero in on an area you’d like to improve 
-       with a specialized course. We’ve got tons of options to get — and keep — you going.`,
+      head: myCourses.draw.header,
+      paragraph: myCourses.draw.description,
       coursesApi: myCourses.draw,
     },
   ];

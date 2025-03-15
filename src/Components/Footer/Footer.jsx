@@ -5,7 +5,7 @@ import logo from "../../Images/Udemy.png";
 const Footer = () => {
   return (
     <>
-      <div className="bg-[#2d2f31] md:px-14 px-8 py-6 w-full">
+      <div className="bg-[#2d2f31] md:px-14 px-8 py-6 w-full ">
         <div className="bg-[#2d2f31] flex flex-wrap justify-between">
           <div className="flex flex-col sm:justify-between sm:flex-row gap-6">
             <ul className="ul">
@@ -66,7 +66,11 @@ const Footer = () => {
         </div>
         <div className="flex justify-between md:mt-8 items-end">
           <Link to={"https://www.udemy.com/"}>
-            <img src={logo} alt="logo" className="w-20 md:w-28 h-auto object-contain" />
+            <img
+              src={logo}
+              alt="logo"
+              className="w-20 md:w-28 h-auto object-contain"
+            />
           </Link>
           <p className="text-white text-[13px] ">© 2024 Udemy, Inc.</p>
         </div>
