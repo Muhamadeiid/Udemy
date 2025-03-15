@@ -5,140 +5,85 @@ import logo from "./../../Images/Udemy.png";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useEffect, useState } from "react";
+import SearchBar from "./SearchBar";
+import myCourses from "./../../../public/courses.json";
 
 const NavBar = () => {
   const [menu, setMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [bigMenu, setBigMenu] = useState(false);
-
-  const windowHandler = () => {
-    let windowSize = window.innerWidth;
-    if (windowSize < 800) {
-      setMenu(true);
-    } else {
-      setMenu(false);
-      setBigMenu(false);
-      setShowMobileMenu(false);
-    }
+  const allCourses = [
+    ...myCourses.python.courses,
+    ...myCourses.draw.courses,
+    ...myCourses.dataScience.courses,
+    ...myCourses.aWS.courses,
+    ...myCourses.WebDev.courses,
+    ...myCourses.javaScript.courses,
+    ...myCourses.Excel.courses,
+  ];
+  const handleResize = () => {
+    setMenu(window.innerWidth < 800);
+    if (window.innerWidth >= 800) setShowMobileMenu(false);
   };
 
   useEffect(() => {
-    if (window.innerWidth < 800) {
-      setMenu(true);
-    } else {
-      setMenu(false);
-    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("resize", windowHandler);
-    return () => {
-      window.removeEventListener("resize", windowHandler);
-    };
-  }, [menu]);
-
-  const toggleMobileMenu = () => {
-    setShowMobileMenu(!showMobileMenu);
+  const handleCourseClick = (courseId) => {
+    console.log("Course clicked:", courseId);
   };
 
   return (
-    <>
-      <header
-        className={
-          menu
-            ? "z-10 flex justify-between items-center px-4 overflow-clip shadow-lg h-[60px]"
-            : "z-10 overflow-clip px-4 shadow-lg w-full h-[72px] gap-[20px] flex grow justify-center items-center"
-        }
-      >
+    <header
+      className={`relative gap-4 z-40 flex justify-between items-center px-4 shadow-lg ${
+        menu ? "h-[60px]" : "h-[72px]"
+      }`}
+    >
+      {menu && (
         <RxHamburgerMenu
           size={24}
-          className={menu ? "block cursor-pointer" : "hidden"}
-          onClick={toggleMobileMenu}
+          className="cursor-pointer"
+          onClick={() => setShowMobileMenu(!showMobileMenu)}
         />
-        <Link to={"/"}>
-          <img src={logo} alt="logo" className="w-28 h-max object-contain" />
-        </Link>
+      )}
 
-        <p
-          className={
-            menu
-              ? "hidden"
-              : "text-[#2d2f31] text-[0.9rem] cursor-pointer hover:text-maincolor"
-          }
-        >
-          Categories
-        </p>
-        <div className={menu ? "hidden" : "relative h-[44px] grow flex"}>
-          <GoSearch
-            size={18}
-            className="text-gray-500 absolute left-4 -translate-y-1/2 top-1/2"
-          />
-          <input
-            placeholder="Search For Anything"
-            className="text-[12px] caret-slate-400 border-[1px] focus:outline-none border-black w-[100%] h-[100%] rounded-full absolute py-2 px-12 bg-transparent placeholder:text-slate-400 placeholder:text-[12px]"
-            type="text"
-          />
-        </div>
-        <div className={menu ? "hidden" : "flex gap-4"}>
-          <p className="text-[#2d2f31] text-[0.9rem] cursor-pointer hover:text-maincolor hidden lg:block">
-            Udemy Business
-          </p>
-          <p className="text-[#2d2f31] text-[0.9rem] cursor-pointer hover:text-maincolor hidden big:block">
-            Teach on Udemy
-          </p>
-        </div>
-        <div className="flex gap-4">
-          <GoSearch
-            size={24}
-            className={menu ? "block cursor-pointer" : "hidden"}
-          />
-          <Link to="/cart">
-            <IoCartOutline
-              size={24}
-              style={{ color: "#5022c3" }}
-              className="cursor-pointer"
-            />
-          </Link>
-        </div>
-        <div className={menu ? "hidden" : "flex gap-4"}>
-          <button className="border border-black w-[80px] h-[40px] hover:bg-slate-200">
-            Log In
-          </button>
-          <button className="border border-black w-[80px] h-[40px] bg-black text-white">
-            Sign Up
-          </button>
-          <button className="border border-black w-[40px] h-[40px] flex justify-center items-center hover:bg-slate-200">
-            <IoEarth size={18} />
-          </button>
-        </div>
+      <Link to="/">
+        <img src={logo} alt="logo" className="w-28" />
+      </Link>
 
-        {/* Mobile Menu */}
-        {showMobileMenu && (
-          <div className="fixed top-[60px] left-0 w-full bg-white shadow-lg z-20">
-            <div className="flex flex-col p-4 gap-4">
-              <p className="text-[#2d2f31] text-[0.9rem] cursor-pointer hover:text-maincolor">
-                Categories
-              </p>
-              <p className="text-[#2d2f31] text-[0.9rem] cursor-pointer hover:text-maincolor">
-                Udemy Business
-              </p>
-              <p className="text-[#2d2f31] text-[0.9rem] cursor-pointer hover:text-maincolor">
-                Teach on Udemy
-              </p>
-              <button className="border border-black w-full h-[40px] hover:bg-slate-200">
-                Log In
-              </button>
-              <button className="border border-black w-full h-[40px] bg-black text-white">
-                Sign Up
-              </button>
-              <button className="border border-black w-full h-[40px] flex justify-center items-center hover:bg-slate-200">
-                <IoEarth size={18} />
-              </button>
-            </div>
+      {!menu && (
+        <>
+          <p className="text-[#2d2f31] text-sm cursor-pointer hover:text-maincolor">
+            Categories
+          </p>
+          <SearchBar
+            allCourses={allCourses}
+            onCourseClick={handleCourseClick}
+          />
+          <div className="flex gap-4">
+            <p className="hidden lg:block text-sm cursor-pointer hover:text-maincolor">
+              Udemy Business
+            </p>
+            <p className="hidden xl:block text-sm cursor-pointer hover:text-maincolor">
+              Teach on Udemy
+            </p>
           </div>
-        )}
-      </header>
-    </>
+          <div className="flex gap-4">
+            <button className="border border-black w-[80px] h-[40px] hover:bg-slate-200">
+              Log In
+            </button>
+            <button className="border border-black w-[80px] h-[40px] bg-black text-white">
+              Sign Up
+            </button>
+            <button className="border border-black w-[40px] h-[40px] flex items-center justify-center hover:bg-slate-200">
+              <IoEarth size={18} />
+            </button>
+          </div>
+        </>
+      )}
+    </header>
   );
 };
 
